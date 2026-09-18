@@ -5,6 +5,14 @@ import { CardStack, type CardStackItem } from "@/components/ui/card-stack";
 
 const mainProjects = [
   {
+    title: "M4PO",
+    desc: "A shared world model for multi-task, multi-embodiment manipulation. Explore the method, results, and robot demonstrations.",
+    gradientFrom: "#275dd4",
+    gradientTo: "#22d3ee",
+    imageSrc: "/m4po/assets/architecture.webp",
+    href: "/m4po/",
+  },
+  {
     title: "M3PO",
     desc: "Massively Multi-Task Model-Based Policy Optimization for robust multi-task RL.",
     gradientFrom: "#a855f7",
@@ -148,12 +156,14 @@ function SkewCard({
   gradientFrom,
   gradientTo,
   imageSrc,
+  href,
 }: {
   title: string;
   desc: string;
   gradientFrom: string;
   gradientTo: string;
   imageSrc?: string;
+  href?: string;
 }) {
   return (
     <div className="group relative w-[320px] h-[460px] m-[40px_30px] transition-all duration-500">
@@ -183,9 +193,18 @@ function SkewCard({
         </div>
         <h3 className="text-2xl mb-2 font-semibold">{title}</h3>
         <p className="text-base leading-relaxed text-white/80 mb-4">{desc}</p>
-        <button className="inline-block text-sm font-bold text-black bg-white px-3 py-2 rounded hover:bg-white/90 transition">
-          Read More
-        </button>
+        {href ? (
+          <a
+            href={href}
+            className="inline-block text-sm font-bold text-black bg-white px-3 py-2 rounded hover:bg-white/90 transition"
+          >
+            Explore M4PO
+          </a>
+        ) : (
+          <button className="inline-block text-sm font-bold text-black bg-white px-3 py-2 rounded hover:bg-white/90 transition">
+            Read More
+          </button>
+        )}
       </div>
     </div>
   );
@@ -205,7 +224,7 @@ export function ProjectsPage() {
                   Flagship Builds
                 </h1>
                 <p className="mt-3 text-neutral-300 max-w-2xl">
-                  Five deep dives that anchor the portfolio, spanning robotics, games, and decision systems.
+                  Research and projects spanning robotics, games, and decision systems.
                 </p>
               </div>
 
